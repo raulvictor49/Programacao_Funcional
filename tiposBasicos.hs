@@ -1,5 +1,5 @@
 addEspacos :: Int -> String
-addEspacos inteiro | inteiro <= 1 = " "
+addEspacos inteiro | inteiro == 0 = ""
                    | otherwise = " " ++ addEspacos (inteiro - 1)
 
 
