@@ -76,3 +76,18 @@ emprestar bd pss lvr = [(pessoa, livro) | (pessoa, livro) <- bd, pessoa == pss &
 
 devolver :: BancoDados -> Pessoa -> Livro -> BancoDados
 devolver bd pss lvr = [(pessoa, livro) | (pessoa, livro) <- bd, livro == lvr]
+
+
+-- Expressão lambda
+calculoIMC :: String -> Float -> Float -> (String, Float)
+calculoIMC = \nome peso altura -> (nome, peso / (altura ^ 2))
+
+
+-- Ordem de grandeza
+livros2 :: BancoDados -> Pessoa -> [Livro]
+livros2 bd pes = map snd (filter isPess bd)
+    where isPess (p,l) = (p == pes)
+
+devolver2 :: BancoDados -> Pessoa -> Livro -> BancoDados
+devolver2 bd p l = filter notPL bd
+    where notPL t = (t /= (p,l))
